@@ -6,7 +6,7 @@ public class springScript : MonoBehaviour
 {
     [SerializeField] GameObject spring;
     Animator animator;
-
+    [SerializeField] GameObject spawner;
   
     
     void Start()
@@ -19,5 +19,6 @@ public class springScript : MonoBehaviour
     private void OnMouseDown()
     {
         animator.SetTrigger("TriggerSpring");
+        spawner.GetComponent<Spawner>().Spawners();
     }
 }
