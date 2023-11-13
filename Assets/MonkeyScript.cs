@@ -5,30 +5,24 @@ using UnityEngine;
 
 public class MonkeyScript : MonoBehaviour
 {
-   Animator animator;
-    AudioSource audioSource;
-
+     Animator animator;
+     AudioSource audioSource;
+   
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>(); 
     }
-
-   
-    private void OnMouseUp()
+    public void startPlaying()
     {
-        animator.SetBool("Clapping", false);
+        audioSource.Play();
+    }
+    public void stoplaying()
+    {
         audioSource.Stop();
+        Debug.Log("Stop Play");
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Foods")
-        {
-            animator.SetBool("Clapping", true);
-            audioSource.Play();
-            Spawner.instance.spawnObject.SetActive(false);
-        }
-    }
+   
     
 
 }
