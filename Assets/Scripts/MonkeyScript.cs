@@ -7,7 +7,7 @@ public class MonkeyScript : MonoBehaviour
 {
      Animator animator;
      AudioSource audioSource;
-    
+     public AudioClip new_clip;
    
     private void Awake()
     {
@@ -22,9 +22,17 @@ public class MonkeyScript : MonoBehaviour
     public void stoplaying()
     {
         audioSource.Stop();
+        audioSource.clip = null;
+        StartCoroutine(stopAudio());
         Debug.Log("Stop Play");
     }
-   
+   IEnumerator stopAudio()
+    {
+        yield return new WaitForSeconds(1.20f);
+       
+        audioSource.clip = new_clip;
+
+    }
     
 
 }
