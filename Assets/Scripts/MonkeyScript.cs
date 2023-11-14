@@ -7,11 +7,13 @@ public class MonkeyScript : MonoBehaviour
 {
      Animator animator;
      AudioSource audioSource;
+    
    
     private void Awake()
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>(); 
+
     }
     public void startPlaying()
     {
